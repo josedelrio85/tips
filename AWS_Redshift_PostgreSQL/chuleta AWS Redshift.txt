@@ -1,0 +1,120 @@
+######### chuleta AWS Redshift #########
+
+jdbc:redshift://eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com:5439/dev
+eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com
+5439
+dev
+
+
+set PGCLIENTENCODING=UTF8
+psql -h eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com -p 5439 -d dev -U root
+psql -h eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com -p 5439 -d dev -U root
+        eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com:5439
+        eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com
+        
+# creación tablas test desde fichero texto
+psql -h eventorama.cymslpfsuzk0.eu-west-1.redshift.amazonaws.com -p 5439 -d dev -U root -f C:\Users\Jose\Documents\AWS_Redshift_PostgreSQL\load_data_redshift.sql
+
+
+###########   CREATE DATABASE   ###########
+
+create database tickit;
+
+create user guest password 'ABCd4321';
+
+
+# show tables
+\dt
+
+SELECT DISTINCT tablename FROM pg_table_def WHERE  schemaname ='public';
+
+# show columns
+\d [table_name]
+
+
+
+select ip, utm, browser, device, event, provider, application, eventdate, receiveddate, url from events;
+
+select ip, event, provider, application, eventdate, receiveddate from events where receiveddate is not null 
+order by receiveddate desc limit 20;
+
+
+select id_bysidecar_group, id_bysidecar, ip, event, provider, application, eventdate, receiveddate from events order by receiveddate desc limit 20;
+
+
+################################
+###########   TIPS   ###########
+################################
+
+# comando para volcado de datos de test desde s3 en redshift
+
+## hubo un problema con esta instrucción, ya que al crear el cluster no se asignó un rol específico para que pudiera leer datos desde s3. Al asignarlo con el cluster ya creado no funcionó, a pesar de reiniciarlo.
+
+copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole' delimiter '|' region 'us-west-2';
+
+copy venue from 's3://awssampledbuswest2/tickit/venue_pipe.txt' 
+credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole'
+delimiter '|' region 'us-west-2';
+
+copy category from 's3://awssampledbuswest2/tickit/category_pipe.txt' 
+credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole' 
+delimiter '|' region 'us-west-2';
+
+copy date from 's3://awssampledbuswest2/tickit/date2008_pipe.txt' 
+credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole' 
+delimiter '|' region 'us-west-2';
+
+copy event from 's3://awssampledbuswest2/tickit/allevents_pipe.txt' 
+credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole' 
+delimiter '|' timeformat 'YYYY-MM-DD HH:MI:SS' region 'us-west-2';
+
+copy listing from 's3://awssampledbuswest2/tickit/listings_pipe.txt' 
+credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole' 
+delimiter '|' region 'us-west-2';
+
+copy sales from 's3://awssampledbuswest2/tickit/sales_tab.txt'
+credentials 'aws_iam_role=arn:aws:iam::952729869933:role/myRedshiftRole'
+delimiter '\t' timeformat 'MM/DD/YYYY HH:MI:SS' region 'us-west-2';
+
+
+######### CONSULTAS EJEMPLO #########
+
+-- Get definition for the sales table.
+SELECT *    
+FROM pg_table_def    
+WHERE tablename = 'sales';    
+
+-- Find total sales on a given calendar date.
+SELECT sum(qtysold) 
+FROM   sales, date 
+WHERE  sales.dateid = date.dateid 
+AND    caldate = '2008-01-05';
+
+-- Find top 10 buyers by quantity.
+SELECT firstname, lastname, total_quantity 
+FROM   (SELECT buyerid, sum(qtysold) total_quantity
+        FROM  sales
+        GROUP BY buyerid
+        ORDER BY total_quantity desc limit 10) Q, users
+WHERE Q.buyerid = userid
+ORDER BY Q.total_quantity desc;
+
+-- Find events in the 99.9 percentile in terms of all time gross sales.
+SELECT eventname, total_price 
+FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile 
+       FROM (SELECT eventid, sum(pricepaid) total_price
+             FROM   sales
+             GROUP BY eventid)) Q, event E
+       WHERE Q.eventid = E.eventid
+       AND percentile = 1
+ORDER BY total_price desc;
+
+
+######### DOCUMENTACIÓN #########
+
+https://docs.aws.amazon.com/es_es/redshift/latest/gsg/rs-gsg-create-sample-db.html
+
+https://docs.aws.amazon.com/es_es/redshift/latest/gsg/rs-gsg-create-an-iam-role.html
+
+https://docs.aws.amazon.com/es_es/redshift/latest/dg/t_Compressing_data_on_disk.html
+

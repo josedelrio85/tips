@@ -1,0 +1,253 @@
+[Listar nodos del cluster]
+
+kubectl get nodes
+
+[Descripción de un nodo]
+
+kubectl describe node [nodename]
+
+
+
+
+
+kubectl --namespace r-expansion-pre set image deployments/r-expansion-pre r-expansion=952729869933.dkr.ecr.eu-west-1.amazonaws.com/r-expansion:8412bb01f7ead57f931cb5377004495a5f69b07f
+
+
+kubectl --namespace r-expansion-pre set image deployments/r-expansion-pre r-expansion=952729869933.dkr.ecr.eu-west-1.amazonaws.com/r-expansion:[id_del_commit]
+
+
+[lista namespaces]
+kubectl get namespaces
+
+[pods del namespace indicado]
+kubectl -n [nombre_namespace] get pod
+kubectl -n  get pod
+
+[detalles del pod del namespace indicado]
+kubectl --namespace r-expansion-pre describe po r-expansion-pre-5fbb5f4df4-49vdg
+kubectl -n __ describe po ___
+
+[urls de los pods del namespace indicado]
+kubectl --namespace r-expansion-pre get ingress
+
+
+
+[log de un pod]
+kubectl logs <pod>
+
+[ver logs de un pod]
+kubectl --namespace data logs eventorama-6bbcfbc9b7-qv47z
+
+[ver logs de un pod escuchando]
+kubectl --namespace data logs -f leads-pre-f977fd575-9s8rw
+
+
+
+[lista deployments en un namespace]
+kubectl get deployment -n data
+
+[descripción deployment de un namespace]
+kubectl describe deployment passport-pre --namespace data
+
+
+[chuleta deployment]
+[repo_docker] => nombre repositorio docker = nombre repo github
+ó consultar nombre en AWS => ECR/repositories
+
+kubectl --namespace [nombre_namespace] set image deployments/[nombre_deployment] [nombre_container]=[url_AWS]/[repo_docker]:[commit_id]
+
+
+
+[deployment para passport-pre]
+kubectl --namespace data set image deployments/passport-pre passport=952729869933.dkr.ecr.eu-west-1.amazonaws.com/passport:7c684d9670e3334aab42a82d97c199891eb986f0
+
+[deployment para eventorama]
+kubectl -n data set image deployments/eventorama eventorama=952729869933.dkr.ecr.eu-west-1.amazonaws.com/eventorama:bc32a6db2fcfbd5d253958fdcdff07d0868fe587
+
+
+####  KINKON  ####
+
+[deployment para kinkon]
+
+[PRE]
+kubectl -n euskaltel-pre set image deployments/euskaltel-kinkon-web-pre euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pre:cd6f2639ad260f7e70537e280471f7fe447d4adb
+
+
+[prod]
+kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pro:cd6f2639ad260f7e70537e280471f7fe447d4adb
+
+##################
+
+
+
+####  RUEIRO  ####
+
+[deployment para rueiro-pre]
+kubectl -n bysidecar-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
+
+
+[deployment para rueiro]
+kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
+
+##################
+
+
+####  LEADS  ####
+
+[deployment para leads-pre]
+kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:1884405ffbc0cf80219aab1bc82f0ef93e8196bc
+
+[deployment para leads]
+kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:89e8c0ce4131e82138524b870792747aecd3d0ad
+
+##################
+
+
+
+####  ABANCA  ####
+
+[deployment para abanca-endtoend-pre]
+kubectl -n abanca-pre set image deployments/abanca-endtoend-website-pre abanca-end2end-website=952729869933.dkr.ecr.eu-west-1.amazonaws.com/abanca-endtoend-website-pre:0a9b37bb176d1b9342553ac8c145ae6eb81f7114
+
+
+[abanca-endtoend-pro]
+kubectl -n abanca set image deployments/abanca-endtoend-website abanca-end2end-website=952729869933.dkr.ecr.eu-west-1.amazonaws.com/abanca-endtoend-website-pro:564ac5de05b557c892602b51252e0345569d3025
+
+##################
+
+
+###  FACEHOOK  ###
+
+kubectl -n euskaltel set image deployments/facehook facehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/facehook:e7ad11f0e831494fd00083a5bff7b4dcca1d4fb6
+
+##################
+
+
+###  GOOGLEHOOK  ###
+[PRE]
+kubectl -n bysidecar-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:3f069e0effc6e09eb86363fd8843aaf7e8ce08a5
+
+
+[PRO]
+kubectl -n bysidecar set image deployments/googlehook googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:d7c7876bf2bc81502e76b31e310c013c456efad3
+
+##################
+
+
+
+####  ABANCAPI  ####
+
+[deployment para abanca-endtoend-api-pre]
+kubectl -n abanca-pre set image deployments/abanca-endtoend-api-pre abanca-endtoend-api=952729869933.dkr.ecr.eu-west-1.amazonaws.com/abanca-endtoend-api:3ec18e8d37c537065f9e694a00829d4b0abdb991
+
+##################
+
+
+####  VIRGIN_BLOG  ####
+
+[deployment para virgin-blog PRE]
+kubectl -n virgin-pre set image deployments/virgin-pre virgin=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:10d478aa783373e869578e2a8bcc1c77bbdaa992
+
+
+[deployment para virgin-blog PRO]
+kubectl -n virgin set image deployments/virgin virgin=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:38798810ea186365d4f73a917b803c5ab60fc9ab
+
+##################
+
+
+####  KINKON-EMPRESAS  ####
+
+[deployment para kinkon-empresas PRE]
+kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:b6d5c457614e819e8303eef168d8d6ca76066c90
+
+
+[deployment para kinkon-empresas PRO]
+kubectl -n euskaltel set image deployments/kinkon-empresas kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pro:3655eb72ac73e69a902f99ac586a255947862a13
+
+##################
+
+
+####  ADESLAS-WEB  ####
+
+[deployment para adeslas-web PRE]
+kubectl -n adeslas-pre set image deployments/adeslas-web-pre adeslas-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/adeslas-web-pre:ad513e2c930a20de7b316c4de1693fc7ff0e78b6
+
+[deployment para adeslas-web PRO]
+kubectl -n adeslas set image deployments/adeslas-web adeslas-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/adeslas-web:4e96491537abb3392eb90555275f00bf0b972c06
+
+##################
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Analisis nombres para deploys]
+
+[udemy example] 
+
+myapp-deployment => name of the created deployment
+
+nginx-container => name of the container
+
+nginx:1.12-perl => version
+
+kubectl set image deployment/myapp-deployment nginx-container=nginx:1.12-perl
+
+
+[chuleta deployment]
+[repo_docker] => nombre repositorio docker = nombre repo github
+ó consultar nombre en AWS => ECR/repositories
+
+kubectl -n [nombre_namespace] set image deployments/[nombre_deployment] [nombre_container]=[url_AWS]/[repo_docker]:[commit_id]
+
+
+[nombre_namespace]  => abanca-pre                   => Consultar describe pod .... => Namespace:
+[nombre_deployment] => abanca-endtoend-website-pre  => kubectl -n [namespace] get deployment
+[nombre_container]  => abanca-end2end-website       => Consultar describe pod .... => Containers:
+[repo_docker]       => abanca-endtoend-website-pre  => consultar nombre en AWS => ECR/repositories
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[interactuar con el pod]
+kubectl -n euskaltel-pre exec -ti euskaltel-kinkon-web-pre-685f485876-84zrt /bin/bash
+
+kubectl -n euskaltel-pre exec -ti euskaltel-kinkon-web-pre-b77dd9dd5-lgw8p /bin/bash
+
+
+
+
+#########################################################################################
+##################################   JOBS    ############################################
+#########################################################################################
+
+You can't rerun a job, you have to delete it and create it again
+
+
+## Apply
+
+kubectl -n bysidecar-pre apply -f ci/job-definition.yml
+
+## Lista jobs
+
+kubectl -n bysidecar-pre get jobs
+
+## Describe job
+
+kubectl -n bysidecar-pre describe jobs/untraceable-job
+
+## Logs job
+
+kubectl -n bysidecar-pre logs jobs/untraceable-job
+
+## Delete jobs
+
+kubectl -n bysidecar-pre delete job/untraceable-job
+
+
+
+############
+############
+
+## COPY resources from pod and paste in local host
+
+kubectl -n [namespace] cp [pod_name]:[pod_path] [local_path]
+

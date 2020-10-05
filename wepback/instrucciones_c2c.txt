@@ -1,0 +1,41 @@
+Tipo request: POST
+
+Formato datos: JSON
+
+URL PRE => https://leads-pre.bysidecar.me/lead/store/
+
+URL PRO => https://leads.bysidecar.me/lead/store/
+
+
+Ejemplo estructura JSON
+{
+    "sou_id": 15,
+    "lea_type": 1,
+    "url": "_URL_",
+    "utm_source": [utm_source],
+    "gclid": [gclid],
+    "domain": [empresas.mundo-r.com/empresas | euskaltel.com/empresas],
+    "phone": [phone],
+    "smartcenter": true
+}
+
+    sou_id: identificador campaña. Por ahora usaremos el valor 15, habrá que cambiarlo por el valor definitivo de la campaña
+    lea_type: Siempre será un 1, es un identificador interno para marcar ese teléfono como click to call.
+    url: La URL desde que el usuario hizo clic al "LLAMADME AHORA", normalmente window.location.href en Javascript.
+    utm_source: El valor del parámetro utm_source en la URL.
+    gclid: El valor del parámetro gclid.
+    domain: El dominio desde el que se hizo la request, normalmente window.location.host en Javascript.
+    phone: El teléfono que ha tecleado el usuario.
+    smartcenter: Siempre será true, que lo marca para que vaya a nuestro smart center.
+
+
+
+- Si hubiera más datos que tenemos que recibir comentadme y amplío el ejemplo del JSON
+
+
+El resultado de la llamada (si ha funcionado) será un 200 OK con el siguiente contenido:
+{
+    "success": true,
+    "message": [identificador],
+    "smartcenter": true
+}

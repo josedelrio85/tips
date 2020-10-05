@@ -1,0 +1,13 @@
+Your EC2 instance has an IP address as well as a DNS name. However, the default IP address is assigned dynamically and might change. You will keep the IP address as long as the instance is running and across reboots, but if you are forced to stop/start or anything like that you will lose it. If you have a domain name pointing to your instance, that is a bad thing. To solve this issue, you will want to obtain an Elastic IP and assign it to your instance. The Elastic IP address is static and belongs to your account. It can be used with any instance. Note that it will replace your current IP address and DNS name.
+
+Route 53 is an authoritative DNS service, meaning it responds to queries for your domain. Let's say you have a website at www.example.com. When you go to that address, a query goes out to one of the DNS servers associated with example.com. The DNS server knows that www is pointing to IP address 1.2.3.4 and returns that response. In this case, that would be an A record. There might be other records as well, such as MX records pointing to the mail servers for your domain. You might use an EC2 instance as your web server, Google Apps for your e-mail and so on. The DNS server knows all these things and can point the client in the right direction, whether it is a web browser or a mail server wishing to deliver a message to you.
+
+https://forums.aws.amazon.com/thread.jspa?threadID=87279
+
+http://www.littlebigextra.com/map-domain-name-amazon-aws-ec2-instance/
+
+
+a78280e73128c11e9a7fc06428d05caa-1775985591.eu-west-1.elb.amazonaws.com.
+
+
+EASY => en el gestor de dominios X (Arsys o lo que sea) crear regla CNAME con referencia a la entrada XXXXX de AWS. en las entradas del ingress que gestiona el servicio tiene que aparecer el dominio que queremos utilizar

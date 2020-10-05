@@ -1,0 +1,40 @@
+URL's:
+
+- www.coberturar.com
+
+- www.mundor.es 
+
+- www.adslr.es 
+
+- www.movilr.es 
+
+
+A continuación explico lo que habría que hacer para realizar el cambio:
+
+ - Eliminar la siguiente linea de código:
+
+    <script src="https://repository.bysidecar.es/Lib/c2c/horarioC2C/horarioC2C.js"></script>
+
+ - Sustituir esta línea de código:
+
+    <script src="https://repository.bysidecar.es/Lib/c2c/RCable/bys-c2c-r-min.js"></script>
+
+  Por esta:
+
+    <script src="https://repository.bysidecar.es/Lib/c2c/RCable/main.js"></script>
+
+
+  Y además, habría que instanciar la siguiente clase para que se cargue la funcionalidad completa.
+
+  <script>
+    window.onload = function () {
+      var c2c = new rcable.RCableC2C('bysOpenC2C');
+    };
+  </script>
+
+Haciendo esto se está incluyendo una librería que tiene 2 propósitos: por un lado creará el componente popup para lanzar el C2C, gestionando la parte frontend y el envío de datos. Además también se encargará de capturar y enviar los datos introducidos en el formulario que existe en estas páginas.
+
+
+Sería interesante poder hacer un par de pruebas en un entorno de preproducción para corroborar que todo funciona como debería. Me queda alguna duda sobre el comportamiento que tendrá el validador de campos en el formulario y también sobre el mensaje de confirmación de envío del mismo.
+
+En caso de que probar en un entorno de pre no fuera posible, lo más recomendable sería coordinarse para, una vez subidos los cambios, poder hacer pruebas en el momento y revisar que todo está OK.

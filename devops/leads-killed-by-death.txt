@@ -1,0 +1,12 @@
+- snapshot de la bd origen (leads)
+
+- generar una nueva bd tomando como origen el snapshot recien creado
+
+- compruebo que me puedo conectar a la nueva BD, ver datos, etc
+
+- probar a modificar la bd origen (leads) para cambiarle el nombre y el host de conexion
+
+- usaremos el nombre y el host de conexion de la bd origen y modificaremos también la bd recién creada, para usar esta bd como soporte
+
+
+- probar a parar e iniciar la bd origen y ver si sigue al 99% cpu

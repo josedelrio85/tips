@@ -1,0 +1,178 @@
+Chuleta Docker
+
+1- docker container run hello-world
+
+  - Docker trata de encontrar en el sistema una imagen que se llame hello-world y si no la encuentra tira de Docker Store. Si la encuentra, hace un pull de esa imagen y hace un run de la misma en un container.
+
+
+2- docker image pull alpine
+
+  - Pull recupera la imagen 'alpine' del Docker Registry (Docker Store) y la guarda en el sistema.
+
+
+3- docker image ls
+
+  - Lista las imagenes del sistema
+
+
+4- docker container run alpine ls -l
+
+ - run a docker container based on this image 'alpine'.
+ - Docker client finds the image
+ - Creates the container
+ - Then runs a command (ls -l) in that container
+ - After the command finished, the container shut down.
+
+5- docker container run -it alpine /bin/sh
+
+ - it flag generates an interactive terminal. 
+ - now you are inside the container running Linux shell and you can try different commands
+ - exit 
+
+6- docker container ls  || docker container ls -a
+ 
+ - shows all containers that are currently running
+
+
+7- docker container start <container ID>
+
+ - run an specific container
+
+
+ # Terminology
+
+ Images - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run  docker image inspect alpine
+
+ Containers - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. You created a container using docker run which you did using the alpine image that you downloaded
+
+ Docker daemon - The background service running on the host that manages building, running and distributing Docker containers.
+
+ Docker client - The command line tool that allows the user to interact with the Docker daemon.
+
+ Docker Store - Store is, among other things, a registry of Docker images. You can think of the registry as a directory of all available Docker images. 
+
+
+8- docker container diff <container ID>
+
+ - Want to inspect all the changes we made in a image.
+
+9- docker container commit CONTAINER_ID
+
+ - Commit creates an image locally on the system running the Docker engine. Run the following command in order to commit the container and create an image out of it.
+
+ 9.1- docker image tag <IMAGE_ID> <IMAGE_TAG>
+
+  - Add a tag to the image
+
+
+
+10- docker image build -t hello:v0.1 .
+
+  - Build an image using Dockerfile in the same folder. Name = hello; version 0.1
+
+
+  10.1- docker container run hello:v0.1
+
+  - run the docker container previously created
+
+
+
+
+11- docker image history <image ID>
+
+  In the history command output, the original Alpine layers are at the bottom of the list and then each customization we added in our Dockerfile is its own step in the output. This is a powerful concept because it means that if we need to make a change to our application, it may only affect a single layer! 
+
+
+
+12 - List all containers 
+
+      docker ps -a -q
+
+   - list all containers (only IDs)
+
+      docker ps -aq
+
+
+14 - Stop all running containers
+
+ docker stop $(docker ps -aq)
+
+
+15 - Remove all containers
+
+ docker rm $(docker ps -aq)
+
+
+16 - Remove all images
+
+ docker rmi $(docker images -q)
+
+
+FOR /f "tokens=*" %i IN ('docker ps -q') DO docker stop %i
+FOR /f "tokens=*" %i IN ('docker ps -q') DO docker rm %i
+
+
+
+
+########### Ejemplo
+
+- La idea es tener un MYSQL o MariaDB en el que montamos las tablas que serán necesarias para pasar el test en Leads
+
+- Tengo un script en el que figuran las sentencias para crear las tablas necesarias e insertar los datos que van a hacer falta.
+
+## Dockerfile
+
+# Builder stage
+FROM  mariadb:latest
+
+# The sql inside docker-entrypoint-initdb will be executed automatically
+ADD ./leads/sql_test/test.sql /docker-entrypoint-initdb.d
+
+
+# Add a database
+ENV MYSQL_DATABASE test_db
+ENV MYSQL_ROOT_PASSWORD rootpw
+ENV MYSQL_USER user
+ENV MYSQL_PASSWORD passw0rd
+
+
+RUN apt-get update && apt-get -y install vim
+
+EXPOSE 3306
+
+
+
+- Montamos la build (-t tag; . lee dockerfile en el directorio actual)
+
+ docker build -t maria .
+
+
+- Ejecutar la docker imagen que se acaba de construir (-d => el contenedor permanecerá corriendo en segundo plano)
+
+ docker run -d --name maria maria
+ 
+  ó
+
+ docker container run -d --name maria maria 
+
+
+- Ejecutamos la instancia de mysql que acabamos de dockerizar
+
+ docker exec -it maria mysql -uuser -p
+
+  - it => ejecutar la instrucción de forma interactiva
+
+  - maria => nombre de la imagen docker que se ha ejecutado
+
+  - mysql -uuser -p => instrucción mysql para lanzar la instancia
+
+
+
+########################################################################################
+
+docker run –dit –p 1234:80 webserver:v1
+
+docker exec -it [container_id] /bin/bash
+
+
+docker cp <containerId>:/file/path/within/container /host/path/target

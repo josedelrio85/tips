@@ -1,0 +1,19 @@
+Para incluir la librería habrá que incluir esta instrucción en la sección "<head>" de la página principal:
+
+  <script type='text/javascript' src='https://repository.bysidecar.es/Lib/c2c/Creditea/bscC2C.js'></script>
+
+
+Para que la librería funcione correctamente, el elemento que lance el popup tendrá que tener un identificador "id" con el valor "bysOpenC2C". En caso que tuviera otro valor en el identificador, este tendrá que ser indicado en el parámetro "fireId", tal y como se indica a continuación.
+    
+    <script>
+      window.onload = function () {
+        var param = {
+          fireId : null,
+          cantSolicId: "importe"
+        };
+        var c2c = new creditea.CrediteaC2C(param); 
+      };
+    </script>
+
+
+El parámetro "cantSolicId" se indicará en caso de que se quiera enviar el valor de la cantidad solicitada por el usuario. Este parámetro indicará el identificador del campo que contiene este valor. En caso de que no se indique, este valor será 0.

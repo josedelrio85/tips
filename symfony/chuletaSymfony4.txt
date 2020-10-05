@@ -1,0 +1,62 @@
+#Create project
+composer create-project symfony/skeleton
+
+#Install Encore
+composer require symfony/webpack-encore-bundle
+
+#Install asset component
+composer require symfony/asset
+
+#Install dev web server
+composer require symfony/web-server-bundle --dev
+
+#Install maker bundle
+composer require symfony/maker-bundle --dev
+composer require annotations
+
+#Install Twig bundle
+composer require symfony/twig-bundle
+
+#Encore run
+yarn encore dev --watch
+
+
+
+
+
+https://symfony.com/doc/current/doctrine.html
+
+composer require symfony/orm-pack
+
+composer require symfony/maker-bundle --dev
+
+
+#Launch web server
+php bin/console server:start
+php bin/console server:start 192.168.0.1:8080
+php bin/console server:status
+php bin/console server:stop
+
+
+#Create database
+
+php bin/console doctrine:database:create => configurado en .env (datos de desarrollo)
+
+
+#Create/Update entity
+php bin/console make:entity
+
+##For ManyToOne relationship, not name entity_id because in DB generate entity_id_id (ugly!)
+
+#Generate the changes in DB
+php bin/console make:entity
+
+
+#Commit the changes in DB
+php bin/console doctrine:migrations:migrate
+
+
+#Generate a Product Controller
+php bin/console make:controller ProductController
+
+

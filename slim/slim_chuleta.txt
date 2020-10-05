@@ -1,0 +1,127 @@
+// dependencies.php
+
+$container['output'] = function() {
+        $script_name = $_SERVER['SCRIPT_NAME'];
+        $base = str_replace('/index.php','',$script_name);
+
+        $requri = $_SERVER['REQUEST_URI'];
+        $param = str_replace($base,'',$_SERVER['REDIRECT_URL']);
+
+        $a = $base.$param;
+
+        $output = $requri;
+
+        if($requri != $a){
+                $output = $a;
+        }
+        return $output;
+};
+
+
+
+// index.php
+
+if($_SERVER['REQUEST_URI'] != $container->output){
+        $_SERVER['REQUEST_URI'] = $container->output;
+}
+
+
+
+// .htaccess
+
+if($_SERVER['REQUEST_URI'] != $container->output){
+        $_SERVER['REQUEST_URI'] = $container->output;
+}
+
+
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+Las diferencias están cuando se hace un redireccionamiento, mete un indice más [REDIRECT_REDIRECT_STATUS] y en el índice [REQUEST_URI] tenemos la única diferencia (exceptuando request_time...). Lo que hago es un hack en slim, si la request_uri que llega es diferente a la "oficial" (nombre_carpeta_slim/index.php), seteo este valor "oficial" en el campo REQUEST_URI de la variable $_SERVER. De esta manera ya no hay problemas con el redireccionamiento y muestra el método correspondiente.
+
+// con ruta = nombre carpeta
+
+
+
+[REDIRECT_STATUS] => 200
+[HTTP_HOST] => 127.0.0.1:1234
+[HTTP_CONNECTION] => keep-alive
+[HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+[HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+[HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+[HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+[HTTP_ACCEPT_LANGUAGE] => es-ES,es;q=0.9,en;q=0.8
+[PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[SERVER_SIGNATURE] => Apache/2.4.29 (Ubuntu) Server at 127.0.0.1 Port 1234
+[SERVER_SOFTWARE] => Apache/2.4.29 (Ubuntu)
+[SERVER_NAME] => 127.0.0.1
+[SERVER_ADDR] => 172.17.0.2
+[SERVER_PORT] => 1234
+[REMOTE_ADDR] => 172.17.0.1
+[DOCUMENT_ROOT] => /var/www/html
+[REQUEST_SCHEME] => http
+[CONTEXT_PREFIX] =>
+[CONTEXT_DOCUMENT_ROOT] => /var/www/html
+[SERVER_ADMIN] => webmaster@localhost
+[SCRIPT_FILENAME] => /var/www/html/slimtest/index.php
+
+[REMOTE_PORT] => 37280
+
+[REDIRECT_URL] => /slimtest/paquito
+[GATEWAY_INTERFACE] => CGI/1.1
+[SERVER_PROTOCOL] => HTTP/1.1
+[REQUEST_METHOD] => GET
+[QUERY_STRING] =>
+
+[REQUEST_URI] => /slimtest/paquito
+
+[SCRIPT_NAME] => /slimtest/index.php
+[PHP_SELF] => /slimtest/index.php
+[REQUEST_TIME_FLOAT] => 1562584209.853
+[REQUEST_TIME] => 1562584209
+
+
+
+
+// con ruta != nombre carpeta
+
+[REDIRECT_REDIRECT_STATUS] => 200
+
+[REDIRECT_STATUS] => 200
+[HTTP_HOST] => 127.0.0.1:1234
+[HTTP_CONNECTION] => keep-alive
+[HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+[HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36
+[HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+[HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+[HTTP_ACCEPT_LANGUAGE] => es-ES,es;q=0.9,en;q=0.8
+[PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[SERVER_SIGNATURE] => Apache/2.4.29 (Ubuntu) Server at 127.0.0.1 Port 1234
+[SERVER_SOFTWARE] => Apache/2.4.29 (Ubuntu)
+[SERVER_NAME] => 127.0.0.1
+[SERVER_ADDR] => 172.17.0.2
+[SERVER_PORT] => 1234
+[REMOTE_ADDR] => 172.17.0.1
+[DOCUMENT_ROOT] => /var/www/html
+[REQUEST_SCHEME] => http
+[CONTEXT_PREFIX] =>
+[CONTEXT_DOCUMENT_ROOT] => /var/www/html
+[SERVER_ADMIN] => webmaster@localhost
+[SCRIPT_FILENAME] => /var/www/html/slimtest/index.php
+
+[REMOTE_PORT] => 37276
+
+[REDIRECT_URL] => /slimtest/paquito
+[GATEWAY_INTERFACE] => CGI/1.1
+[SERVER_PROTOCOL] => HTTP/1.1
+[REQUEST_METHOD] => GET
+[QUERY_STRING] =>
+
+[REQUEST_URI] => /leoapi/paquito
+
+[SCRIPT_NAME] => /slimtest/index.php
+[PHP_SELF] => /slimtest/index.php
+[REQUEST_TIME_FLOAT] => 1562584104.102
+[REQUEST_TIME] => 1562584104 

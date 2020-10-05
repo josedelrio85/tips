@@ -1,0 +1,124 @@
+Web browser
+
+Case 1:
+
+  Slim Method: $request->getParsedBody()
+
+  Method: POST
+
+  Body: {"lea_source": "23", "lea_type": "1", [{"TELEFONO": "666666666", "name": "nombre"}]}
+
+  Header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+  Result: {"lea_source":23,"lea_type":9,"data":{"TELEFONO":"665932355","nombre":"HOLA"}}:"" => INCORRECT
+
+  ExpectedResult: 
+    stdClass => 
+      lea_source:23
+      lea_type:9
+      data:stdClass
+        TELEFONO:"665932355"
+        nombre:"HOLA"
+
+Case 2:
+
+  Slim Method: $request->getParsedBody()
+
+  Method: POST
+
+  Body: {"lea_source": "23", "lea_type": "1", [{"TELEFONO": "666666666", "name": "nombre"}]}
+
+  Header: { 'Content-Type': 'application/json' }
+
+  Result: Request is not sended => "Access to fetch at 'http://localhost:8888/smartcenter/store' from origin 'http://localhost:9200' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled."
+
+  ExpectedResult: 
+    stdClass => 
+      lea_source:23
+      lea_type:9
+      data:stdClass
+        TELEFONO:"665932355"
+        nombre:"HOLA"        
+
+
+Case 3:
+
+  Slim Method: $request->getParsedBody()
+
+  Method: POST
+
+  Body: {"lea_source": "23", "lea_type": "1", [{"TELEFONO": "666666666", "name": "nombre"}]}
+
+  Header: 
+
+  Result: NULL => INCORRECT
+
+  ExpectedResult: 
+    stdClass => 
+      lea_source:23
+      lea_type:9
+      data:stdClass
+        TELEFONO:"665932355"
+        nombre:"HOLA"
+
+
+Postman
+
+Case 1:
+  
+  Slim Method: $request->getParsedBody()
+
+  Method: POST
+
+  Body: {"lea_source": "23", "lea_type": "1", [{"TELEFONO": "666666666", "name": "nombre"}]}
+
+  Header: { 'Content-Type': 'application/json' }
+
+  Result: 
+    stdClass => 
+      lea_source:23
+      lea_type:9
+      data:stdClass
+        TELEFONO:"665932355"
+        nombre:"HOLA"  
+
+  ExpectedResult: 
+    stdClass => 
+      lea_source:23
+      lea_type:9
+      data:stdClass
+        TELEFONO:"665932355"
+        nombre:"HOLA"  
+
+
+Case 2:
+  
+  Slim Method: $request->getParsedBody()
+  
+  Method: POST
+
+  Body: 
+    lea_source:23
+    lea_type:1
+    data[TELEFONO]:666666666
+    data[name]:HOLA
+
+  Header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+  Result: 
+    array[
+      lea_source:"23"
+      lea_type:"1"
+      data:array(2)
+        TELEFONO:"666666666"
+        name:"HOLA"
+    ]
+
+  ExpectedResult: 
+    array[
+      lea_source:"23"
+      lea_type:"1"
+      data:array(2)
+        TELEFONO:"666666666"
+        name:"HOLA"
+    ]

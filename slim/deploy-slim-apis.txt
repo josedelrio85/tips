@@ -1,0 +1,81 @@
+
+smartcenter/timetable/isontime => report-panel-api/timetable/isontime
+
+
+lead/asnef/check               => leontel-api/asnef/check
+
+
+lead/smartcenter/store         => send-lead-leontel-api/smartcenter/store
+
+
+
+https://ws.bysidecar.es/smartcenter/timetable/isontime
+
+
+https://ws.bysidecar.es/lead/smartcenter/store
+
+
+https://ws.bysidecar.es/lead/asnef/check
+
+
+
+
+
+
+RewriteCond %{REQUEST_URI} smartcenter/(.*)
+RewriteRule ^smartcenter/(.*)$ /slimtest/%1 [L]
+RewriteCond %{REQUEST_URI} lead/smartcenter/(.*)
+RewriteRule ^lead/smartcenter/(.*)$ /slimother/%1 [L]
+
+
+
+
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+
+RewriteCond %{REQUEST_URI} lead/smartcenter/(.*)
+RewriteRule ^lead/smartcenter/(.*)$ /slimthree/smartcenter/%1 [L]
+
+RewriteCond %{REQUEST_URI} lead/asnef/(.*)
+RewriteRule ^lead/asnef/(.*)$ /slimother/asnef/%1 [L]
+
+
+
+
+
+
+RewriteEngine on
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteCond %{REQUEST_URI} lead/smartcenter/(.*)
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteRule ^ /slimthree/%1/%2 [L]
+
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteCond %{REQUEST_URI} lead/asnef/(.*)
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteRule ^ /slimother/%1/%2 [L]
+
+
+RewriteEngine on
+RewriteCond %{REQUEST_URI} smartcenter/(.*)
+RewriteRule ^smartcenter/(.*)$ /report-panel-api/%1 [L]
+
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteCond %{REQUEST_URI} lead/smartcenter/(.*)
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteRule ^ /send-lead-leontel-api/%1/%2 [L]
+
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteCond %{REQUEST_URI} lead/asnef/(.*)
+RewriteCond %{REQUEST_URI} lead/(.*)/(.*)
+RewriteRule ^ /leontel-api/%1/%2 [L]
+
+
+
+http://127.0.0.1:1234/smartcenter/timetable/isontime
+
+http://127.0.0.1:1234/lead/smartcenter/store
+
+http://127.0.0.1:1234/lead/asnef/check

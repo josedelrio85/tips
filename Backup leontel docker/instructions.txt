@@ -1,0 +1,18 @@
+# Generate the image
+
+docker image build -t mysql5.5:v0.2 .
+
+
+
+# Run the container with other port
+
+docker run --name=mysql2  -p 3309:3306  -d  -e MYSQL_ROOT_HOST=%  mysql5.5:v0.2
+
+
+# Get into the container
+
+docker exec -ti <containerID> /bin/bash
+
+
+
+mysql -uroot -proot -f < fullBackupLeontel.sql
