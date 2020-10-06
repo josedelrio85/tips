@@ -129,6 +129,7 @@ affinity: {}
 ```bash
 helm -n [namespace] install [desired_hell_name] [folder_helm_resources]
 # helm -n virgin install virgin-nginx-cert letsencrypt
+# windows only:  helm --namespace [namespace] install --name [desired_hell_name] letsencrypt
 ```
 
 * Wait few minutes until the deploy is fully ready
