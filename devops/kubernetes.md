@@ -52,12 +52,12 @@ kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu
 ### **LEADS**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:237b9eeee06a6d413de26ec217471f923a80a08d
+kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:027417a2cc75b09fa780ae243f485756c0007347
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:19890a084758b04d5b2d925f96e7c82e379bdd5e
+kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:027417a2cc75b09fa780ae243f485756c0007347
 ```
 
 
