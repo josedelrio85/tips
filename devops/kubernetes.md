@@ -394,3 +394,11 @@ kubectl -n bysidecar-pre logs jobs/untraceable-job
 ```bash
 kubectl -n bysidecar-pre delete cronjob/untraceable-cronjob
 ```
+
+## INGRESS
+
+### Update an ingress without upgrading deployment
+
+```sh
+kubectl -n [namespace] edit ingress [ingress_name]
+```
