@@ -129,6 +129,7 @@ affinity: {}
 ```bash
 helm -n [namespace] install [desired_hell_name] [folder_helm_resources]
 # helm -n virgin install virgin-nginx-cert letsencrypt
+# windows only:  helm --namespace [namespace] install --name [desired_hell_name] letsencrypt
 ```
 
 * Wait few minutes until the deploy is fully ready
@@ -225,4 +226,12 @@ sudo kubectl -n euskaltel create secret tls tls-www-ofertastelecable-es --key /e
 
 ```bash
 sudo kubectl -n euskaltel create secret tls tls-www-euskaltelofertas-com --key  /etc/letsencrypt/live/www.euskaltelofertas.com/privkey.pem --cert /etc/letsencrypt/live/www.euskaltelofertas.com/fullchain.pem --dry-run=client -o yaml | kubectl apply -f -
+```
+
+```cmd
+# windows example
+# remove the secret first
+kubectl -n [namespace] delete secret [secret_name]
+# create again the secret
+kubectl -n [namespace] create secret tls [secret_name] --key C:\Certbot\live\[host]\privkey.pem --cert C:\Certbot\live\[host]\fullchain.pem
 ```
