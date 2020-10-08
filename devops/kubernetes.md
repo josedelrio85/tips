@@ -24,12 +24,12 @@ kubectl -n data set image deployments/eventorama eventorama=952729869933.dkr.ecr
 ### **KINKON**
 [PRE]
 ```bash
-kubectl -n euskaltel-pre set image deployments/euskaltel-kinkon-web-pre euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pre:a17c8903e50c5971a460901d4d7c06f39fa09083
+kubectl -n euskaltel-pre set image deployments/euskaltel-kinkon-web-pre euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pre:934e0574d62e35b1fcb614235c7c19d133456315
 ```
 
 [PRO]
 ```bash
-kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pro:d026ac9920ea4194f62dc441bad4022258c3edbd
+kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pro:6ffc814912542e9f8c37440eebe9aeb8f7daea1b
 ```
 
 
@@ -52,12 +52,12 @@ kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu
 ### **LEADS**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:237b9eeee06a6d413de26ec217471f923a80a08d
+kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:0ae1f04a1945ea612c212940cc2dcd801b4531dc
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:19890a084758b04d5b2d925f96e7c82e379bdd5e
+kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:0ae1f04a1945ea612c212940cc2dcd801b4531dc
 ```
 
 
@@ -115,7 +115,7 @@ kubectl -n abanca-pre set image deployments/abanca-endtoend-api-pre abanca-endto
 ### **R-EMPRESAS**
 [PRE]
 ```bash
-kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:d7eb12d3a671424df24883d32a09cd3967119f1f
+kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:a4d63fa8c3765a0d7af288e1bf3228c7ede509f1
 ```
 
 [PRO]
