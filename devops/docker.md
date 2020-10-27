@@ -72,8 +72,21 @@ docker image pull [image_name]
 aws ecr get-login-password --region [aws_region] | docker login --username [username] --password-stdin [image_name]
 
 ## aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 952729869933.dkr.ecr.eu-west-1.amazonaws.com/symfony-node
+
+## aws ecr get-login-password --region eu-west-1 docker login 
 ```
 
+### Windows => AWS ECR Login and pull image
+
+```bash
+aws ecr get-login --region eu-west-1
+```
+
+* Copy output and paste it to login
+
+```
+docker pull [image_name]
+```
 
 ## Start/stop a container
 
