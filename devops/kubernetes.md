@@ -52,12 +52,12 @@ kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu
 ### **LEADS**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:e975fe4573192cf329a213ce710e7e4a6c1386e2
+kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:5f63c572288c8163a8545e7f6f61b1247bdd936b
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:8d4cd3b54b2c51409f84af84e5824728bd10273b
+kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:5f63c572288c8163a8545e7f6f61b1247bdd936b
 ```
 
 
@@ -115,7 +115,7 @@ kubectl -n abanca-pre set image deployments/abanca-endtoend-api-pre abanca-endto
 ### **R-EMPRESAS**
 [PRE]
 ```bash
-kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:c5a91ea7fb0988d21b8d10be577deb33b97b18ea
+kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:5bf32d506d251287d3210609dc2e4e2342f46787
 ```
 
 [PRO]
@@ -145,12 +145,12 @@ kubectl -n adeslas set image deployments/adeslas-web adeslas-web=952729869933.dk
 ### **VIRGIN-BLOG**
 [PRE]
 ```bash
-kubectl -n virgin-pre set image deployments/virgin-blog-pre virgin-blog-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:086dc988ba54a9538a14a8cc819653858c23fd82
+kubectl -n virgin-pre set image deployments/virgin-blog-pre virgin-blog-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:5903f7e589ccd964cac5cb13878bd06319cabaef
 ```
 
 [PRO]
 ```bash
-kubectl -n virgin set image deployments/virgin-blog virgin-blog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:086dc988ba54a9538a14a8cc819653858c23fd82
+kubectl -n virgin set image deployments/virgin-blog virgin-blog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:5903f7e589ccd964cac5cb13878bd06319cabaef
 ```
 
 
