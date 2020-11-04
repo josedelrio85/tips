@@ -160,7 +160,7 @@ kubectl -n virgin set image deployments/virgin-blog virgin-blog=952729869933.dkr
 ### **VIRGIN-WEB**
 [PRE]
 ```bash
-kubectl -n virgin-pre set image deployments/virgin-web-pre virgin-web-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin-web-pre:32e7c484c4dd8fcfa4f6a1a96359c283ab598c7a
+kubectl -n virgin-pre set image deployments/virgin-web-pre virgin-web-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin-web-pre:51f8b4e2c00ef6ec5145ce6ee31b9129219d1d59
 ```
 
 [PRO]
