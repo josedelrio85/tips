@@ -419,3 +419,29 @@ df -h --total
 ```bash
 df --o --total
 ```
+
+## WINDOWS
+
+### EMBEDDED LINUX
+
+  Share windows folder with kali linux
+
+  * Create a new folder in windows host and set it to be a shared folder
+
+  * Install cifs-utils in Linux
+
+  ```bash
+  sudo apt-get install cifs-utils
+  ```
+
+  * Create a folder on linux to share from Windows
+
+  ```bash
+  sudo mkdir /home/[username]/[folder]
+  ```
+
+  * Mount shared windows folder in created folder
+
+  ```bash
+  sudo mount -t drvfs '\\server\share' /home/[username]/[folder]
+  ```
