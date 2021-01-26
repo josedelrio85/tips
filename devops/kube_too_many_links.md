@@ -14,15 +14,15 @@ chmod 400 /path/my-key-pair.pem
 - Conectarse a los nodos
 
 ```bash
-ssh -i "C:\Users\Jose\Downloads\bysidecar.pem" admin@ec2-34-245-183-95.eu-west-1.compute.amazonaws.com
+ssh -i "C:\Users\Jose\Downloads\bysidecar.pem" admin@ec2-3-249-254-248.eu-west-1.compute.amazonaws.com
 
-ssh -i "C:\Users\Jose\Downloads\bysidecar.pem" admin@ec2-34-244-128-18.eu-west-1.compute.amazonaws.com
+ssh -i "C:\Users\Jose\Downloads\bysidecar.pem" admin@ec2-3-250-71-147.eu-west-1.compute.amazonaws.com
 ```
 
 ```bash
-ssh -i "/home/jose/Descargas/bysidecar"  admin@ec2-34-245-183-95.eu-west-1.compute.amazonaws.com
+ssh -i "/home/jose/Descargas/bysidecar"  admin@ec2-3-249-254-248.eu-west-1.compute.amazonaws.com
 
-ssh -i "/home/jose/Descargas/bysidecar" admin@ec2-34-244-128-18.eu-west-1.compute.amazonaws.com
+ssh -i "/home/jose/Descargas/bysidecar" admin@ec2-3-250-71-147.eu-west-1.compute.amazonaws.com
 ```
 
 - Echar un ojo al espacio libre
