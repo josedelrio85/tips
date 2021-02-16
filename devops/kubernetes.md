@@ -24,7 +24,7 @@ kubectl -n data set image deployments/eventorama eventorama=952729869933.dkr.ecr
 ### **KINKON**
 [PRE]
 ```bash
-kubectl -n euskaltel-pre set image deployments/euskaltel-kinkon-web-pre euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pre:2fc6ec0bf9dc25690d1587f35ac68e2aaa8a0b4d
+kubectl -n euskaltel-pre set image deployments/euskaltel-kinkon-web-pre euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pre:18418597c01c00f3d951e345b0683a3fa795fa47
 ```
 
 [PRO]
@@ -43,7 +43,7 @@ kubectl -n bysidecar-pre set image deployments/rueiro-pre rueiro=952729869933.dk
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
+kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:1a54a14b6e6b50364873450cfa2aa85708a58059
 ```
 
 
@@ -130,12 +130,12 @@ kubectl -n euskaltel set image deployments/kinkon-empresas kinkon-empresas=95272
 ### **ADESLAS-WEB**
 [PRE]
 ```bash
-kubectl -n adeslas-pre set image deployments/adeslas-web-pre adeslas-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/adeslas-web-pre:fcd9ac5290d94550f052581af103645885725edd
+kubectl -n adeslas-pre set image deployments/adeslas-web-pre adeslas-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/adeslas-web-pre:fff55fc8fc4435f41383458d96df47bc020b50d6
 ```
 
 [PRO]
 ```bash
-kubectl -n adeslas set image deployments/adeslas-web adeslas-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/adeslas-web:998f3eff8bb709e334c48f19dd96f64cc82c0fee
+kubectl -n adeslas set image deployments/adeslas-web adeslas-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/adeslas-web:fff55fc8fc4435f41383458d96df47bc020b50d6
 ```
 
 
