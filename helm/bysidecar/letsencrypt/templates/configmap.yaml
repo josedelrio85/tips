@@ -1,0 +1,14 @@
+{{- if .Values.vhost -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "prisma.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "prisma.name" . }}
+    helm.sh/chart: {{ include "prisma.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data:
+  vhost.conf: |-
+{{ .Values.vhost | indent 4 }}
+{{- end -}}

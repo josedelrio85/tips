@@ -1,0 +1,40 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+
+nameOverride: "letsencrypt"
+fullnameOverride: "letsencrypt"
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: true
+  annotations: {
+    ingress.kubernetes.io/force-ssl-redirect: "false"
+  }
+  paths:
+  - /.well-known/acme-challenge/EOx4RG25S_reWqAgp-3oDebSjiWKiST3nHHR6RtHB9I
+
+  hosts:
+    - www.rcable.es
+
+vhost: |-
+  server {
+    listen 80;
+    server_name _;
+
+    # This entry is intended to be used to renew the api.bysidecar.com certificate
+    location / {
+      return 200 'EOx4RG25S_reWqAgp-3oDebSjiWKiST3nHHR6RtHB9I.JFI56Vjyh9A5jrwGJ0s4EZIqhso7TAP3hL_chr8WXPI';
+    }
+  }
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

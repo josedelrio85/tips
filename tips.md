@@ -111,7 +111,7 @@ NOTE: Shell config files such as `~/.bashrc`, `~/.bash_profile`, and `~/.bash_lo
   npm login --registry=https://npm.pkg.github.com --scope=@BySidecar
 
   > Username: USERNAME
-  > Password: TOKEN
+  > Password: TOKEN [USE CREATED TOKEN CODE!!!]
   > Email: PUBLIC EMAIL ADDRESS
   ```
 

@@ -29,7 +29,7 @@ kubectl -n euskaltel-pre set image deployments/euskaltel-kinkon-web-pre euskalte
 
 [PRO]
 ```bash
-kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pro:c5176b677e0612208abb129375d4d327a88b5216
+kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel-kinkon-web-pro:807f713bd4ef62759a8658d3d1b573c5e6159d9c
 ```
 
 
@@ -38,7 +38,7 @@ kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon
 ### **RUEIRO**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:0ce3410217bfb635a36ecdd005cac6b7dc467e16
+kubectl -n bysidecar-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:d69bd295f44737c9d7f50eff6cbc71fd3059d988
 ```
 
 [PRO]
@@ -52,12 +52,12 @@ kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu
 ### **LEADS**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:5f63c572288c8163a8545e7f6f61b1247bdd936b
+kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:9d177003595cbbdac188708d3f0b2bf444b3331f
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:5f63c572288c8163a8545e7f6f61b1247bdd936b
+kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:e744f28adee506c5cae12732b5f1f66829893efe
 ```
 
 
@@ -91,7 +91,7 @@ kubectl -n euskaltel set image deployments/facehook facehook=952729869933.dkr.ec
 ### **GOOGLEHOOK**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:3f069e0effc6e09eb86363fd8843aaf7e8ce08a5
+kubectl -n bysidecar-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:9e921f35152898184868d745498a3e88ba2273d4
 ```
 
 [PRO]
@@ -115,12 +115,12 @@ kubectl -n abanca-pre set image deployments/abanca-endtoend-api-pre abanca-endto
 ### **R-EMPRESAS**
 [PRE]
 ```bash
-kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:5bf32d506d251287d3210609dc2e4e2342f46787
+kubectl -n euskaltel-pre set image deployments/kinkon-empresas-pre kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pre:8a40f72e5910cd2ea093721f545f5a56f1142f4a
 ```
 
 [PRO]
 ```bash
-kubectl -n euskaltel set image deployments/kinkon-empresas kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pro:eb294fefed167801a4bc4214d0f4e5222e91efc8
+kubectl -n euskaltel set image deployments/kinkon-empresas kinkon-empresas=952729869933.dkr.ecr.eu-west-1.amazonaws.com/kinkon-empresas-pro:68a718f8589e892ff85a5ca6775fd95617c3b88b
 ```
 
 
@@ -145,14 +145,13 @@ kubectl -n adeslas set image deployments/adeslas-web adeslas-web=952729869933.dk
 ### **VIRGIN-BLOG**
 [PRE]
 ```bash
-kubectl -n virgin-pre set image deployments/virgin-blog-pre virgin-blog-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:5903f7e589ccd964cac5cb13878bd06319cabaef
+kubectl -n virgin-pre set image deployments/virgin-blog-pre virgin-blog-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:aefde53f22879c67a4ad002ef3a71d5958e3c88a
 ```
 
 [PRO]
 ```bash
-kubectl -n virgin set image deployments/virgin-blog virgin-blog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:5903f7e589ccd964cac5cb13878bd06319cabaef
+kubectl -n virgin set image deployments/virgin-blog virgin-blog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin_blog:21bf3efec9e83cf85ce4947aa9a8777c5f1cdf87
 ```
-
 
 
 
@@ -160,12 +159,12 @@ kubectl -n virgin set image deployments/virgin-blog virgin-blog=952729869933.dkr
 ### **VIRGIN-WEB**
 [PRE]
 ```bash
-kubectl -n virgin-pre set image deployments/virgin-web-pre virgin-web-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin-web-pre:7d4e3d50f6a294039824999f8c8ab47b24059647
+kubectl -n virgin-pre set image deployments/virgin-web-pre virgin-web-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin-web-pre:530b1f83b5a7e9ce2d343b470f2a675c04345abe
 ```
 
 [PRO]
 ```bash
-kubectl -n virgin set image deployments/virgin-web virgin-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin-web:7d4e3d50f6a294039824999f8c8ab47b24059647
+kubectl -n virgin set image deployments/virgin-web virgin-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/virgin-web:530b1f83b5a7e9ce2d343b470f2a675c04345abe
 ```
 
 
@@ -192,12 +191,12 @@ kubectl -n bysidecar-pre set image deployments/compcatalog compcatalog=952729869
 ### **ENDESA-WEB**
 [PRE]
 ```bash
-kubectl -n endesa-pre set image deployments/endesa-web-pre endesa-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/endesa-web-pre:456b6cc0d8221387b6ca80d920891ec3f59e627a
+kubectl -n endesa-pre set image deployments/endesa-web-pre endesa-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/endesa-web-pre:af9faee6a2cbcbab5e17601e02ab67b7c04b9bd7
 ```
 
 [PRO]
 ```bash
-kubectl -n endesa set image deployments/endesa-endesa-web endesa-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/endesa-web:456b6cc0d8221387b6ca80d920891ec3f59e627a
+kubectl -n endesa set image deployments/endesa-endesa-web endesa-web=952729869933.dkr.ecr.eu-west-1.amazonaws.com/endesa-web:af9faee6a2cbcbab5e17601e02ab67b7c04b9bd7
 ```
 
 
@@ -205,17 +204,37 @@ kubectl -n endesa set image deployments/endesa-endesa-web endesa-web=95272986993
 ### **KINKON-BLOG**
 [PRE]
 ```bash
-kubectl -n euskaltel-pre set image deployments/euskaltel-blog-pre euskaltel-blog-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel_blog:239e5702f67092ddb860f36b4e755a51c8e0feee
+kubectl -n euskaltel-pre set image deployments/euskaltel-blog-pre euskaltel-blog-pre=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel_blog:52204e67b8d93de370df07af138a7a3c7f13d47b
 ```
 
 [PRO]
 ```bash
-kubectl -n euskaltel set image deployments/euskaltel-blog euskaltel-blog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel_blog:239e5702f67092ddb860f36b4e755a51c8e0feee
+kubectl -n euskaltel set image deployments/euskaltel-blog euskaltel-blog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/euskaltel_blog:49fafde27d1d80f093fb23f92c76feab21a6997f
 ```
 
  
+### **WHITE-COMPARATOR**
+[PRE]
+```bash
+kubectl -n white-comparator-pre set image deployments/white-comparator-pre white-comparator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/white-comparator-pre:3b673601e836d3a2d640f992cff0e6cc41e238a1
+```
+
+[PRO]
+```bash
+kubectl -n white-comparator set image deployments/white-comparator white-comparator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/white-comparator-pre:6dee2b20d9ed51d1aaf0311d8571a03ed30dca21
+```
 
 
+### **CHECKOPERATOR**
+[PRE]
+```bash
+kubectl -n bysidecar-pre set image deployments/checkoperator-pre checkoperator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/checkoperator:933a89899c6acc9d317c0b5b7fe81bf57f68a7e9
+```
+
+[PRO]
+```bash
+kubectl -n bysidecar set image deployments/checkoperator checkoperator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/checkoperator:933a89899c6acc9d317c0b5b7fe81bf57f68a7e9
+```
 
 
 ## Analisis nombres para deploys
@@ -412,4 +431,15 @@ kubectl set env deployment/registry STORAGE_DIR=/local
   
 # List the environment variables defined on a deployments 'sample-build'
 kubectl set env deployment/sample-build --list
+```
+
+
+## EXEC
+
+### Get into a pod
+
+```bash
+kubectl -n [namespace] exec --stdin --tty [pod_name] -- /bin/bash
+
+#Note: The double dash (--) separates the arguments you want to pass to the command from the kubectl arguments.
 ```
