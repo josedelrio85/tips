@@ -2,9 +2,9 @@ Tipo request: POST
 
 Formato datos: JSON
 
-URL PRE => https://leads-pre.bysidecar.me/lead/store/
+URL PRE => https://leads-pre.josedelrio85.me/lead/store/
 
-URL PRO => https://leads.bysidecar.me/lead/store/
+URL PRO => https://leads.josedelrio85.me/lead/store/
 
 
 Ejemplo estructura JSON

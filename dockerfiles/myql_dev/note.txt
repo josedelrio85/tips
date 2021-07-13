@@ -1,0 +1,1 @@
+mysql -hlocalhost -P3309 -uroot -ptest --protocol=tcp

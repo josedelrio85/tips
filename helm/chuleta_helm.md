@@ -60,22 +60,22 @@ kubectl -n [namespace] create -f certificate-definition.yml
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: googlehook-pre-bysidecar-me
-  namespace: bysidecar-pre
+  name: googlehook-pre-josedelrio85-me
+  namespace: josedelrio85-pre
 spec:
   secretName: tls-googlehook-pre
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
-  commonName: googlehook-pre.bysidecar.me
+  commonName: googlehook-pre.josedelrio85.me
   dnsNames:
-  - googlehook-pre.bysidecar.me
+  - googlehook-pre.josedelrio85.me
   acme:
     config:
     - dns01:
         provider: aws-route53
       domains:
-      - googlehook-pre.bysidecar.me
+      - googlehook-pre.josedelrio85.me
 ```
 
 This will create a certificate and the its tls secret.

@@ -1,6 +1,6 @@
 Para incluir la librería habrá que incluir esta instrucción en la sección "<head>" de la página principal:
 
-  <script type='text/javascript' src='https://repository.bysidecar.es/Lib/c2c/Creditea/bscC2C.js'></script>
+  <script type='text/javascript' src='https://repository.josedelrio85.es/Lib/c2c/Creditea/bscC2C.js'></script>
 
 
 Para que la librería funcione correctamente, el elemento que lance el popup tendrá que tener un identificador "id" con el valor "bysOpenC2C". En caso que tuviera otro valor en el identificador, este tendrá que ser indicado en el parámetro "fireId", tal y como se indica a continuación.

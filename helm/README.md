@@ -1,7 +1,7 @@
 # HELM
-Helm is our system to package and deploy applications on BySidecar Kubernetes cluster.
+Helm is our system to package and deploy applications on josedelrio85 Kubernetes cluster.
 
-![Helm](https://s3-eu-west-1.amazonaws.com/public.bysidecar.me/assets/helm/logo/helm.png)
+![Helm](https://s3-eu-west-1.amazonaws.com/public.josedelrio85.me/assets/helm/logo/helm.png)
 
 As you may check on [Helm's docs](https://docs.helm.sh/). Helm have two pieces, first, a CLI that uses your Kubernetes config to perform package managing operations (deploy, delete, update, etc), the CLI is able to perform those actions because the second piece, is named Tiller and its the system that manages the packages deployed.
 

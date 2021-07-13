@@ -92,7 +92,7 @@ NOTE: Shell config files such as `~/.bashrc`, `~/.bash_profile`, and `~/.bash_lo
 * Is needed to add a .npmrc in the repo that will use a package from GitHub. Set this content in this file:
 
   ```bash
-  @bysidecar:registry=https://npm.pkg.github.com/
+  @josedelrio85:registry=https://npm.pkg.github.com/
   ```
 
 * Create a .npmrc file in the root of your system to log in in npm (not npm registry, github instad).
@@ -108,7 +108,7 @@ NOTE: Shell config files such as `~/.bashrc`, `~/.bash_profile`, and `~/.bash_lo
 * If you have problems using .npmrc in the root folder, execute this commands:
 
   ```bash
-  npm login --registry=https://npm.pkg.github.com --scope=@BySidecar
+  npm login --registry=https://npm.pkg.github.com --scope=@josedelrio85
 
   > Username: USERNAME
   > Password: TOKEN [USE CREATED TOKEN CODE!!!]
@@ -128,7 +128,7 @@ NOTE: Shell config files such as `~/.bashrc`, `~/.bash_profile`, and `~/.bash_lo
         ```bash
         "repository": {
           "type": "git",
-          "url": "git+https://github.com/BySidecar/landing-commander.git"
+          "url": "git+https://github.com/josedelrio85/landing-commander.git"
         },
         ```
 
@@ -318,10 +318,10 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
   **IMPORTANTISIMO!!!!**
 
-  Añadir repos privados bysidecar a variable GOPRIVATE
+  Añadir repos privados josedelrio85 a variable GOPRIVATE
 
   ```bash
-  go env -w GOPRIVATE=github.com/bysidecar/* 
+  go env -w GOPRIVATE=github.com/josedelrio85/* 
   ```
 
 ## CRON

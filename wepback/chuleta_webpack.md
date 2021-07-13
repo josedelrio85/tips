@@ -329,5 +329,5 @@ npm run dev
 ## Añadir landing_commader
 
 ```bash
-npm install @bysidecar/landing_commander@1.0.26
+npm install @josedelrio85/landing_commander@1.0.26
 ```

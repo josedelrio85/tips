@@ -83,11 +83,11 @@ kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon
 ####  RUEIRO  ####
 
 [deployment para rueiro-pre]
-kubectl -n bysidecar-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
+kubectl -n josedelrio85-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
 
 
 [deployment para rueiro]
-kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
+kubectl -n josedelrio85 set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:2278567cf505db7aec46d764842124d229ad8990
 
 ##################
 
@@ -95,10 +95,10 @@ kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu
 ####  LEADS  ####
 
 [deployment para leads-pre]
-kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:1884405ffbc0cf80219aab1bc82f0ef93e8196bc
+kubectl -n josedelrio85-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:1884405ffbc0cf80219aab1bc82f0ef93e8196bc
 
 [deployment para leads]
-kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:89e8c0ce4131e82138524b870792747aecd3d0ad
+kubectl -n josedelrio85 set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:89e8c0ce4131e82138524b870792747aecd3d0ad
 
 ##################
 
@@ -125,11 +125,11 @@ kubectl -n euskaltel set image deployments/facehook facehook=952729869933.dkr.ec
 
 ###  GOOGLEHOOK  ###
 [PRE]
-kubectl -n bysidecar-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:3f069e0effc6e09eb86363fd8843aaf7e8ce08a5
+kubectl -n josedelrio85-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:3f069e0effc6e09eb86363fd8843aaf7e8ce08a5
 
 
 [PRO]
-kubectl -n bysidecar set image deployments/googlehook googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:d7c7876bf2bc81502e76b31e310c013c456efad3
+kubectl -n josedelrio85 set image deployments/googlehook googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:d7c7876bf2bc81502e76b31e310c013c456efad3
 
 ##################
 
@@ -224,23 +224,23 @@ You can't rerun a job, you have to delete it and create it again
 
 ## Apply
 
-kubectl -n bysidecar-pre apply -f ci/job-definition.yml
+kubectl -n josedelrio85-pre apply -f ci/job-definition.yml
 
 ## Lista jobs
 
-kubectl -n bysidecar-pre get jobs
+kubectl -n josedelrio85-pre get jobs
 
 ## Describe job
 
-kubectl -n bysidecar-pre describe jobs/untraceable-job
+kubectl -n josedelrio85-pre describe jobs/untraceable-job
 
 ## Logs job
 
-kubectl -n bysidecar-pre logs jobs/untraceable-job
+kubectl -n josedelrio85-pre logs jobs/untraceable-job
 
 ## Delete jobs
 
-kubectl -n bysidecar-pre delete job/untraceable-job
+kubectl -n josedelrio85-pre delete job/untraceable-job
 
 
 

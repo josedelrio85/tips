@@ -39,7 +39,7 @@ select ip, event, provider, application, eventdate, receiveddate from events whe
 order by receiveddate desc limit 20;
 
 
-select id_bysidecar_group, id_bysidecar, ip, event, provider, application, eventdate, receiveddate from events order by receiveddate desc limit 20;
+select id_josedelrio85_group, id_josedelrio85, ip, event, provider, application, eventdate, receiveddate from events order by receiveddate desc limit 20;
 
 
 ################################

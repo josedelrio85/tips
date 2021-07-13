@@ -38,12 +38,12 @@ kubectl -n euskaltel set image deployments/euskaltel-kinkon-web euskaltel-kinkon
 ### **RUEIRO**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:d69bd295f44737c9d7f50eff6cbc71fd3059d988
+kubectl -n josedelrio85-pre set image deployments/rueiro-pre rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:d69bd295f44737c9d7f50eff6cbc71fd3059d988
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:1a54a14b6e6b50364873450cfa2aa85708a58059
+kubectl -n josedelrio85 set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu-west-1.amazonaws.com/rueiro:1a54a14b6e6b50364873450cfa2aa85708a58059
 ```
 
 
@@ -52,12 +52,12 @@ kubectl -n bysidecar set image deployments/rueiro rueiro=952729869933.dkr.ecr.eu
 ### **LEADS**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:9d177003595cbbdac188708d3f0b2bf444b3331f
+kubectl -n josedelrio85-pre set image deployments/leads-pre leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:9d177003595cbbdac188708d3f0b2bf444b3331f
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:e744f28adee506c5cae12732b5f1f66829893efe
+kubectl -n josedelrio85 set image deployments/leads leads=952729869933.dkr.ecr.eu-west-1.amazonaws.com/leads:e744f28adee506c5cae12732b5f1f66829893efe
 ```
 
 
@@ -91,12 +91,12 @@ kubectl -n euskaltel set image deployments/facehook facehook=952729869933.dkr.ec
 ### **GOOGLEHOOK**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:9e921f35152898184868d745498a3e88ba2273d4
+kubectl -n josedelrio85-pre set image deployments/googlehook-pre googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:9e921f35152898184868d745498a3e88ba2273d4
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/googlehook googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:d7c7876bf2bc81502e76b31e310c013c456efad3
+kubectl -n josedelrio85 set image deployments/googlehook googlehook=952729869933.dkr.ecr.eu-west-1.amazonaws.com/googlehook:d7c7876bf2bc81502e76b31e310c013c456efad3
 ```
 
 
@@ -173,7 +173,7 @@ kubectl -n virgin set image deployments/virgin-web virgin-web=952729869933.dkr.e
 ### **LOADDATAREPORT**
 
 ```bash
-kubectl -n bysidecar-pre set image deployments/loaddatareport loaddatareport=952729869933.dkr.ecr.eu-west-1.amazonaws.com/loaddatareport:dcee4440afe80da9c41a20d96fb2f788477cc7ac
+kubectl -n josedelrio85-pre set image deployments/loaddatareport loaddatareport=952729869933.dkr.ecr.eu-west-1.amazonaws.com/loaddatareport:dcee4440afe80da9c41a20d96fb2f788477cc7ac
 ```
 
 
@@ -182,7 +182,7 @@ kubectl -n bysidecar-pre set image deployments/loaddatareport loaddatareport=952
 ### **COMPCATALOG**
 
 ```bash
-kubectl -n bysidecar-pre set image deployments/compcatalog compcatalog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/comp-catalog:abc5d0c347c775cf992a88a20ad42424c9621ae6
+kubectl -n josedelrio85-pre set image deployments/compcatalog compcatalog=952729869933.dkr.ecr.eu-west-1.amazonaws.com/comp-catalog:abc5d0c347c775cf992a88a20ad42424c9621ae6
 ```
 
 
@@ -228,12 +228,12 @@ kubectl -n white-comparator set image deployments/white-comparator white-compara
 ### **CHECKOPERATOR**
 [PRE]
 ```bash
-kubectl -n bysidecar-pre set image deployments/checkoperator-pre checkoperator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/checkoperator:933a89899c6acc9d317c0b5b7fe81bf57f68a7e9
+kubectl -n josedelrio85-pre set image deployments/checkoperator-pre checkoperator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/checkoperator:933a89899c6acc9d317c0b5b7fe81bf57f68a7e9
 ```
 
 [PRO]
 ```bash
-kubectl -n bysidecar set image deployments/checkoperator checkoperator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/checkoperator:933a89899c6acc9d317c0b5b7fe81bf57f68a7e9
+kubectl -n josedelrio85 set image deployments/checkoperator checkoperator=952729869933.dkr.ecr.eu-west-1.amazonaws.com/checkoperator:933a89899c6acc9d317c0b5b7fe81bf57f68a7e9
 ```
 
 
@@ -270,22 +270,22 @@ kubectl -n [namespace] create -f certificate-definition.yml
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: googlehook-pre-bysidecar-me
-  namespace: bysidecar-pre
+  name: googlehook-pre-josedelrio85-me
+  namespace: josedelrio85-pre
 spec:
   secretName: tls-googlehook-pre
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
-  commonName: googlehook-pre.bysidecar.me
+  commonName: googlehook-pre.josedelrio85.me
   dnsNames:
-  - googlehook-pre.bysidecar.me
+  - googlehook-pre.josedelrio85.me
   acme:
     config:
     - dns01:
         provider: aws-route53
       domains:
-      - googlehook-pre.bysidecar.me
+      - googlehook-pre.josedelrio85.me
 ```
 
 This will create a certificate and the its tls secret.
@@ -354,31 +354,31 @@ You can't rerun a job, you have to delete it and create it again
 ### Apply
 
 ```bash
-kubectl -n bysidecar-pre apply -f ci/job-definition.yml
+kubectl -n josedelrio85-pre apply -f ci/job-definition.yml
 ```
 
 ### List jobs
 
 ```bash
-kubectl -n bysidecar-pre get jobs
+kubectl -n josedelrio85-pre get jobs
 ```
 
 ### Describe job
 
 ```bash
-kubectl -n bysidecar-pre describe jobs/untraceable-job
+kubectl -n josedelrio85-pre describe jobs/untraceable-job
 ```
 
 ### Logs job
 
 ```bash
-kubectl -n bysidecar-pre logs jobs/untraceable-job
+kubectl -n josedelrio85-pre logs jobs/untraceable-job
 ```
 
 ### Delete jobs
 
 ```bash
-kubectl -n bysidecar-pre delete job/untraceable-job
+kubectl -n josedelrio85-pre delete job/untraceable-job
 ```
 
 
@@ -388,31 +388,31 @@ kubectl -n bysidecar-pre delete job/untraceable-job
 ### Apply cronjob
 
 ```bash
-kubectl -n bysidecar-pre apply -f ci/cronjob-definition.yml
+kubectl -n josedelrio85-pre apply -f ci/cronjob-definition.yml
 ```
 
 ### List cronjobs
 
 ```bash
-kubectl -n bysidecar-pre get cronjobs
+kubectl -n josedelrio85-pre get cronjobs
 ```
 
 ### Describe cronjobs
 
 ```bash
-kubectl -n bysidecar-pre describe cronjob/untraceable-cronjob
+kubectl -n josedelrio85-pre describe cronjob/untraceable-cronjob
 ```
 
 ### Logs cronjobs
 
 ```bash
-kubectl -n bysidecar-pre logs jobs/untraceable-job
+kubectl -n josedelrio85-pre logs jobs/untraceable-job
 ```
 
 ### Delete cronjobs
 
 ```bash
-kubectl -n bysidecar-pre delete cronjob/untraceable-cronjob
+kubectl -n josedelrio85-pre delete cronjob/untraceable-cronjob
 ```
 
 ## INGRESS

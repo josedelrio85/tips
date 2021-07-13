@@ -13,15 +13,15 @@ A continuación explico lo que habría que hacer para realizar el cambio:
 
  - Eliminar la siguiente linea de código:
 
-    <script src="https://repository.bysidecar.es/Lib/c2c/horarioC2C/horarioC2C.js"></script>
+    <script src="https://repository.josedelrio85.es/Lib/c2c/horarioC2C/horarioC2C.js"></script>
 
  - Sustituir esta línea de código:
 
-    <script src="https://repository.bysidecar.es/Lib/c2c/RCable/bys-c2c-r-min.js"></script>
+    <script src="https://repository.josedelrio85.es/Lib/c2c/RCable/bys-c2c-r-min.js"></script>
 
   Por esta:
 
-    <script src="https://repository.bysidecar.es/Lib/c2c/RCable/main.js"></script>
+    <script src="https://repository.josedelrio85.es/Lib/c2c/RCable/main.js"></script>
 
 
   Y además, habría que instanciar la siguiente clase para que se cargue la funcionalidad completa.

@@ -9,13 +9,13 @@ lead/smartcenter/store         => send-lead-leontel-api/smartcenter/store
 
 
 
-https://ws.bysidecar.es/smartcenter/timetable/isontime
+https://ws.josedelrio85.es/smartcenter/timetable/isontime
 
 
-https://ws.bysidecar.es/lead/smartcenter/store
+https://ws.josedelrio85.es/lead/smartcenter/store
 
 
-https://ws.bysidecar.es/lead/asnef/check
+https://ws.josedelrio85.es/lead/asnef/check
 
 
 

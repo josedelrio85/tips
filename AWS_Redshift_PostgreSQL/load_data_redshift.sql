@@ -85,8 +85,8 @@ create table sales(
 	Eventdate        string `json:"eventdate"`
 	Receiveddate     string `json:"receiveddate"`
 	URL              string `json:"url"`
-	Idbysidecargroup string `json:"id_bysidecar_group"`	=> generado por servicio externo
-	Idbysidecar      string `json:"id_bysidecar"`		=> generado por servicio externo
+	Idjosedelrio85group string `json:"id_josedelrio85_group"`	=> generado por servicio externo
+	Idjosedelrio85      string `json:"id_josedelrio85"`		=> generado por servicio externo
 
 
 
@@ -103,6 +103,6 @@ create table events(
 	eventdate timestamp sortkey,
 	receiveddate timestamp,
 	url varchar(255),
-	id_bysidecar_group varchar(255),
-	id_bysidecar varchar(255)
+	id_josedelrio85_group varchar(255),
+	id_josedelrio85 varchar(255)
 );

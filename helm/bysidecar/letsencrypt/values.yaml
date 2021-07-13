@@ -28,7 +28,7 @@ vhost: |-
     listen 80;
     server_name _;
 
-    # This entry is intended to be used to renew the api.bysidecar.com certificate
+    # This entry is intended to be used to renew the api.josedelrio85.com certificate
     location / {
       return 200 'EOx4RG25S_reWqAgp-3oDebSjiWKiST3nHHR6RtHB9I.JFI56Vjyh9A5jrwGJ0s4EZIqhso7TAP3hL_chr8WXPI';
     }

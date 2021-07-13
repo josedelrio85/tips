@@ -30,7 +30,7 @@ sudo certbot certonly --manual -d [domain]
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
 Enter email address (used for urgent renewal and security notices) (Enter 'c' to
-cancel): innovacion@bysidecar.com
+cancel): innovacion@josedelrio85.com
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Please read the Terms of Service at
@@ -75,7 +75,7 @@ Press Enter to Continue^[[F
 
 ## Update `nginx_for_certs` helm values file with the prompted data
 
-* [Nginx for certificates](https://github.com/BySidecar/devops/tree/dev/helm/bysidecar/letsencrypt)
+* [Nginx for certificates](https://github.com/josedelrio85/devops/tree/dev/helm/josedelrio85/letsencrypt)
 
 
 ```yml
@@ -110,7 +110,7 @@ vhost: |-
     listen 80;
     server_name _;
 
-    # This entry is intended to be used to renew the api.bysidecar.com certificate
+    # This entry is intended to be used to renew the api.josedelrio85.com certificate
     # set with the value offered by certbot client
     location / {
       return 200 'PyPvaIcBJYKLq2zjwF_IQoZhrMVbwGvudpvonMSP8eQ.WXxYNBwR-4dHsJTtotx50K3I67kxJ7l_nvyMIZpwdf0';
